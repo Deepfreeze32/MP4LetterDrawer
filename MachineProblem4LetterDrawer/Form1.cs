@@ -12,11 +12,13 @@ namespace MachineProblem4LetterDrawer
 {
     public partial class LetterDrawer : Form
     {
+        public List<List<Label>> grid = new List<List<Label>>();
         public LetterDrawer()
         {
             InitializeComponent();
             for (int i = 0; i < RowCount; i++)
             {
+                List<Label> row = new List<Label>();
                 for (int j = 0; j < ColumnCount; j++)
                 {
                     Label lbl = new Label();
@@ -26,8 +28,10 @@ namespace MachineProblem4LetterDrawer
                     lbl.BackColor = Color.White;
                     lbl.Text = i + "," + j;
                     lbl.Click += lbl_Click;
+                    row.Add(lbl);
                     panel1.Controls.Add(lbl);
                 }
+                grid.Add(row);
             }
         }
 

@@ -8,6 +8,8 @@ namespace MachineProblem4LetterDrawer
     {
         const int RowCount = 8;
         const int ColumnCount = 8;
+
+        
         
         private string GenerateArray()
         {
@@ -16,11 +18,11 @@ namespace MachineProblem4LetterDrawer
             string line = "{";
 
             int index = 0;
-            for (int i = 0; i < 8; i++)
+            foreach(List<Label> lblList in grid)
             {
-                for (int j = 0; j < 8; j++)
+                foreach (Label lbl in lblList)
                 {
-                    Label lbl = this.Controls.Find(i + "," + j, true).FirstOrDefault() as Label;
+                    
                     if (index != 0 && index % 8 == 0)
                     {
                         line += "}";
@@ -34,12 +36,13 @@ namespace MachineProblem4LetterDrawer
                     }
                     if (lbl.BackColor == Color.Black)
                     {
-                        line += i+","+j;
+                        //line += "-1.0";
                     }
                     else
                     {
-                        line += i+","+j;
+                        //line += "1.0";
                     }
+                    line += lbl.Text;
                     index++;
                 }
             }
@@ -120,14 +123,14 @@ namespace MachineProblem4LetterDrawer
             this.panel1.Size = new System.Drawing.Size(280, 280);
             this.panel1.TabIndex = 0;
             // 
-            // Form1
+            // LetterDrawer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(283, 338);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "LetterDrawer";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
