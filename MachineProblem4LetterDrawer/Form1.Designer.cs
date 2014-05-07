@@ -2,14 +2,11 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
+using System;
 namespace MachineProblem4LetterDrawer
 {
     partial class LetterDrawer
     {
-        const int RowCount = 8;
-        const int ColumnCount = 8;
-
-        
         
         private string GenerateArray()
         {
@@ -22,29 +19,26 @@ namespace MachineProblem4LetterDrawer
             {
                 foreach (Label lbl in lblList)
                 {
-                    
-                    if (index != 0 && index % 8 == 0)
+                    if (lbl.BackColor == Color.Black)
                     {
-                        line += "}";
-                        subArrays.Add(line);
-                        line = "{";
-                        index = 0;
+                        line += "-1.0";
                     }
                     else
+                    {
+                        line += "1.0";
+                    }
+                    //Console.WriteLine("Now saving: "+lbl.Text);
+                    //line += lbl.Text;
+                    if (index != 7)
                     {
                         line += ",";
                     }
-                    if (lbl.BackColor == Color.Black)
-                    {
-                        //line += "-1.0";
-                    }
-                    else
-                    {
-                        //line += "1.0";
-                    }
-                    line += lbl.Text;
                     index++;
                 }
+                line += "}";
+                subArrays.Add(line);
+                index = 0;
+                line = "{";
             }
             subArrays.Reverse();
             index = 0;
@@ -104,6 +98,7 @@ namespace MachineProblem4LetterDrawer
         {
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.outputBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -123,16 +118,26 @@ namespace MachineProblem4LetterDrawer
             this.panel1.Size = new System.Drawing.Size(280, 280);
             this.panel1.TabIndex = 0;
             // 
+            // outputBox
+            // 
+            this.outputBox.Location = new System.Drawing.Point(2, 321);
+            this.outputBox.Multiline = true;
+            this.outputBox.Name = "outputBox";
+            this.outputBox.Size = new System.Drawing.Size(280, 136);
+            this.outputBox.TabIndex = 2;
+            // 
             // LetterDrawer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 338);
+            this.ClientSize = new System.Drawing.Size(283, 458);
+            this.Controls.Add(this.outputBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Name = "LetterDrawer";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -140,6 +145,7 @@ namespace MachineProblem4LetterDrawer
 
         private Button button1;
         private Panel panel1;
+        private TextBox outputBox;
     }
 }
 

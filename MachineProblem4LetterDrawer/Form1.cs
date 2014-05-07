@@ -16,10 +16,10 @@ namespace MachineProblem4LetterDrawer
         public LetterDrawer()
         {
             InitializeComponent();
-            for (int i = 0; i < RowCount; i++)
+            for (int i = 0; i < 8; i++)
             {
                 List<Label> row = new List<Label>();
-                for (int j = 0; j < ColumnCount; j++)
+                for (int j = 0; j < 8; j++)
                 {
                     Label lbl = new Label();
                     lbl.Name = i + "," + j;
@@ -28,6 +28,7 @@ namespace MachineProblem4LetterDrawer
                     lbl.BackColor = Color.White;
                     lbl.Text = i + "," + j;
                     lbl.Click += lbl_Click;
+                    //Console.WriteLine("Now adding: "+lbl.Text);
                     row.Add(lbl);
                     panel1.Controls.Add(lbl);
                 }
@@ -37,7 +38,7 @@ namespace MachineProblem4LetterDrawer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(GenerateArray());
+            outputBox.Text = (GenerateArray());
         }
     }
 }
