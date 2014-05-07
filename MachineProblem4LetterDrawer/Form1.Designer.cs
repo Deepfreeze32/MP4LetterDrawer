@@ -11,7 +11,7 @@ namespace MachineProblem4LetterDrawer
         private string GenerateArray()
         {
             var subArrays = new List<string>();
-            string array = "double[][] letter = {";
+            string array = "double letter[8][8] = {";
             string line = "{";
 
             int index = 0;
