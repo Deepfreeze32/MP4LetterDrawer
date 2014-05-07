@@ -46,7 +46,7 @@ namespace MachineProblem4LetterDrawer
             {
                 array += s;
                 index++;
-                if (index < 7)
+                if (index <= 7)
                 {
                     array += ",";
                 }
