@@ -16,10 +16,10 @@ namespace MachineProblem4LetterDrawer
         public LetterDrawer()
         {
             InitializeComponent();
-            for (int i = 0; i < 8; i++)
+            for (int j = 0; j < 8; j++)
             {
                 List<Label> row = new List<Label>();
-                for (int j = 0; j < 8; j++)
+                for (int i = 0; i < 8; i++)
                 {
                     Label lbl = new Label();
                     lbl.Name = i + "," + j;

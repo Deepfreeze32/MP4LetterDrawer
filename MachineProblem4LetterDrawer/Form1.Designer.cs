@@ -11,7 +11,7 @@ namespace MachineProblem4LetterDrawer
         private string GenerateArray()
         {
             var subArrays = new List<string>();
-            string array = "double[] letter = {";
+            string array = "double[][] letter = {";
             string line = "{";
 
             int index = 0;
@@ -135,7 +135,7 @@ namespace MachineProblem4LetterDrawer
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Name = "LetterDrawer";
-            this.Text = "Form1";
+            this.Text = "MP4 Letter Drawer";
             this.ResumeLayout(false);
             this.PerformLayout();
 
